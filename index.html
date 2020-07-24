@@ -23,18 +23,22 @@
                         <h5>iPhone 11 128GB Black</h5>
                      </div>
 
+                     <!-- Phone Plus-Minus Area -->
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button id="removeProduct" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="itemQuantity" type="text" class="form-control text-center" value="1">
+                           <button id="addProduct" class="btn btn-default"><i class="fas fa-plus"></i></button>
                         </div>
-                        <h5>$1219</h5>
+                        <h5>$ <span id="phonePrice">1219</span></h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
+                     <!-- Phone Plus-Minus Area -->
+
                   </div>
                </div>
 
+               <!-- iPhone Case Area Start-->
                <div class="cart-item">
                   <div class="row">
                      <div class="col-md-7 center-item mx-auto">
@@ -43,9 +47,9 @@
                      </div>
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <button id="removeProduct" class="btn btn-default"><i class="fas fa-minus"></i></button>
                            <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button id="addProduct" class="btn btn-default"><i class="fas fa-plus"></i></button>
 
                         </div>
                         <h5>$59</h5>
@@ -53,6 +57,7 @@
                      </div>
                   </div>
                </div>
+               <!-- iPhone Case Area End-->
 
                <div class="cart-item">
                   <div class="row">
@@ -64,9 +69,9 @@
                      </div>
 
                      <div class="col-md-4 status">
-                        <h5>$1,278</h5>
+                        <h5>$ <span id="subTotal">1278</span></h5>
                         <h5>$0</h5>
-                        <h5>$1,278</h5>
+                        <h5>$ <span id="total">1278</span></h5>
                      </div>
                   </div>
                </div>
@@ -77,6 +82,83 @@
          </div>
       </div>
    </section>
+
+
+
+
+   <script>
+
+      //phone price
+      var phonePrice = document.getElementById('phonePrice').innerText;
+      phonePrice = parseInt(phonePrice);
+
+      //sub total price
+      var subTotal = document.getElementById('subTotal').innerText;
+      subTotal = parseInt(subTotal);
+
+      //total price
+      var total = document.getElementById('total').innerText;
+      total = parseInt(total);
+
+      //Phone Case price
+      var casePrice = document.getElementById('')
+
+      //addProduct event handler
+      const addPhoneButton = document.getElementById('addProduct');
+      addPhoneButton.addEventListener("click", function () {
+         const quantity = document.getElementById('itemQuantity').value;
+         const currentQuantity = parseInt(quantity);
+         const totalCurrentQuantity = currentQuantity + 1;
+         itemQuantity.value = totalCurrentQuantity;
+
+         console.log(totalCurrentQuantity);
+
+         subTotalAmount = totalCurrentQuantity * phonePrice;
+         document.getElementById("subTotal").innerText = subTotalAmount;
+
+         const totalPhonePrice = totalCurrentQuantity * phonePrice;
+
+         document.getElementById("phonePrice").innerText = totalPhonePrice;
+
+         const totalAmount = subTotalAmount;
+         document.getElementById("total").innerText = totalAmount;
+
+
+
+
+
+      })
+
+      //removeProduct event handler
+      const removePhoneButton = document.getElementById('removeProduct');
+      removePhoneButton.addEventListener("click", function () {
+         const quantity = document.getElementById('itemQuantity').value;
+         const currentQuantity = parseInt(quantity);
+         const totalCurrentQuantity = currentQuantity - 1;
+         itemQuantity.value = totalCurrentQuantity;
+
+         console.log(totalCurrentQuantity);
+
+         subTotalAmount = totalCurrentQuantity * phonePrice;
+         document.getElementById("subTotal").innerText = subTotalAmount;
+
+         const totalPhonePrice = totalCurrentQuantity * phonePrice;
+
+         document.getElementById("phonePrice").innerText = totalPhonePrice;
+
+         const totalAmount = subTotalAmount;
+         document.getElementById("total").innerText = totalAmount;
+
+      })
+
+      //Phone Case Event Handler
+
+
+
+
+
+
+   </script>
 </body>
 
 </html>
