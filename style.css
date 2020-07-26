@@ -53,3 +53,13 @@ body{
 	background-color: #2FBE70;
 	border: none;
 }
+
+.order-confirm{
+	background-color: #fff;
+	text-align: center;
+	padding: 40px;
+	margin-top: 10%;
+	display: none;
+	border: 1px solid lightgrey;
+}
+
